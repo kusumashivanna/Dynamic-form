@@ -1,0 +1,36 @@
+<!-- Container for the entire registration form with top margin -->
+<div class="container mt-5">
+  <!-- Center the content within a row -->
+  <div class="row justify-content-center">
+    <!-- Create a medium-sized column for the form -->
+    <div class="col-md-6">
+      <!-- Card to contain the registration form -->
+      <div class="card">
+        <!-- Card header with a centered heading -->
+        <div class="card-header">
+          <h2 class="text-center">Register</h2>
+        </div>
+        <!-- Card body contains the form -->
+        <div class="card-body">
+          <!-- Angular form with formGroup binding and onSubmit event -->
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <!-- Loop through form sections -->
+            <div *ngFor="let section of formData.formFields">
+              <!-- Display section label as heading -->
+              <h4>{{ section.label }}</h4>
+              <!-- Loop through fields within the section -->
+              <div *ngFor="let field of section.fields">
+                <!-- Custom form field component with field, submitted, and form bindings -->
+                <app-form-field [field]="field" [submitted]="submitted" [form]="form"></app-form-field>
+              </div>
+            </div>
+            <!-- Submit button for the form -->
+            <button class="btn btn-primary">
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

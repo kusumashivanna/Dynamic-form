@@ -1,0 +1,30 @@
+/* registration-form.component.css */
+.card {
+  margin-top: 50px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+// .form-floating {
+//   position: relative;
+// }
+
+// .form-floating label {
+//   pointer-events: none;
+//   transform-origin: top left;
+//   transition: transform 0.2s, opacity 0.2s, -webkit-transform 0.2s;
+// }
+
+// .form-floating input:not(:placeholder-shown)~label,
+// .form-floating input:focus~label {
+//   transform: translateY(-1rem) scale(0.8);
+//   opacity: 0.5;
+// }

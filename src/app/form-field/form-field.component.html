@@ -1,0 +1,52 @@
+<!-- Container for the form group with dynamic binding to the provided form -->
+<div [formGroup]="form" class="form-group">
+
+  <!-- Conditionally render label if the field type is not 'checkbox' -->
+  <div *ngIf="field.type !== 'checkbox'">
+    <label class="form-label">{{ field.label }}</label>
+  </div>
+
+  <!-- Conditionally render input fields for 'text' and 'date' types -->
+  <div *ngIf="field.type === 'text' || field.type === 'date'">
+    <div class="form-group">
+      <input type="{{ field.type }}" class="form-control" [formControlName]="field.name"
+        [placeholder]="field.placeholder" />
+    </div>
+  </div>
+
+  <!-- Conditionally render radio buttons for 'radio' type -->
+  <div *ngIf="field.type === 'radio'">
+    <div *ngFor="let option of field.options">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" [formControlName]="field.name" [value]="option.value">
+        {{ option.label }}
+      </label>
+    </div>
+  </div>
+
+  <!-- Conditionally render checkbox inputs for 'checkbox' type -->
+  <div *ngIf="field.type === 'checkbox'">
+    <label class="form-check-label">{{ field.label }}</label>
+    <div *ngFor="let option of field.options">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" [formControlName]="field.name" [value]="option.value">
+        {{ option.label }}
+      </label>
+    </div>
+  </div>
+
+  <!-- Conditionally render select dropdown for 'select' type -->
+  <div *ngIf="field.type === 'select'">
+    <div class="form-group">
+      <select class="form-control" [formControlName]="field.name">
+        <option *ngFor="let option of field.options" [value]="option.value">{{ option.label }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Display error messages if the form is not submitted and there are validation errors -->
+  <div *ngIf="!submitted && f[field.name].errors" class="invalid-feedback">
+    <div *ngIf="f[field.name].errors?.['required']">{{ field.label }} is required</div>
+    <div *ngIf="f[field.name].errors?.['pattern']">{{ field.label }} is invalid</div>
+  </div>
+</div>
