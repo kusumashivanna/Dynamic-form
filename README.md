@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Installing
+
+1. Clone the repository to your local machine:
+
+https://github.com/kusumashivanna/Dynamic-form.git
+
+cd Dynamic-form
+
+npm install
+
+ng serve
